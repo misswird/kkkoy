@@ -330,9 +330,8 @@ check_variable() {
 # 下载最新版本 Nezha Agent
 download_agent() {
   if [ ! -e nezha-agent ]; then
-    URL=\$(wget -qO- "https://github.com/nezhahq/agent/releases/download/v0.20.5/nezha-agent_freebsd_amd64.zip" | grep -o "https.*linux_amd64.zip")
-    URL=\${URL:-https://github.com/nezhahq/agent/releases/download/v0.15.6/nezha-agent_linux_amd64.zip}
-    wget \${URL}
+    URL="https://github.com/nezhahq/agent/releases/download/v0.20.5/nezha-agent_linux_amd64.zip"
+    wget ${URL}
     unzip -qod ./ nezha-agent_linux_amd64.zip
     rm -f nezha-agent_linux_amd64.zip
   fi
